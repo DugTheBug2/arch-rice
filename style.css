@@ -1,0 +1,99 @@
+/* Waybar top bar — cleaned to the modules/styles used by this config */
+
+* {
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color:#BF2000
+}
+
+/* Main bar */
+window#waybar {
+    background-color: rgba(43, 48, 59, 0);
+    transition-property: background-color;
+    transition-duration: .5s;
+    margin-bottom: 500px;
+
+}
+
+/* General button styling */
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #000000;
+}
+
+/* Workspace buttons */
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #000000;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+/* Shared module styling */
+.module {
+    border-radius: 10px;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 0 10px;
+}
+
+/* Right-side group background and text */
+.modules-right {
+    background-color: #000000;
+}
+
+/* Window title and workspaces spacing */
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* Remove extra left spacing when workspaces are first */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* Remove extra right spacing when workspaces are last */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* Text color while a label is focused */
+label:focus {
+    background-color: #FFFFFF;
+}
