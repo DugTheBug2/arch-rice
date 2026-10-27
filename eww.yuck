@@ -1,0 +1,120 @@
+(defwidget bar []
+  (centerbox :orientation "h"
+    (date_time)
+    (pc_info)
+    (t_button)))
+
+(defwidget youtube []
+  (button
+    :class "youtube"
+    :onclick "firefox --new-window youtube.com"
+    "Youtube"
+  )
+)
+(defwidget spotify []
+  (button
+    :class "spotify"
+    :onclick "firefox --new-window spotify.com"
+    "Spotify"
+  )
+)
+(defwidget date_time []
+  (box
+    :class "date-time"
+    :orientation "horizontal"
+    time
+    
+  )
+)
+(defwidget pc_info []
+  (box
+    :class "dinfo"
+    :orientation "horizontal"
+   "${hname}"
+  "${uname}"
+  )
+)
+(defwidget files []
+  (box
+    :class "dinfo"
+    :orientation "vertical"
+    (button
+    :class "Downloads"
+    :onclick "~/Downloads/script.sh"
+    "Downloads"
+  )
+  (button
+    :class "Documents"
+    :onclick "~/Downloads/script.sh"
+    "Documents"
+  )
+  (button
+    :class "Configs"
+    :onclick "~/Downloads/script.sh"
+    "Configs"
+  )
+  )
+  
+)
+
+
+
+(defpoll time :interval "10s"
+  "date '+%H:%M %b %d, %Y'")
+(defpoll hname :interval "1h"
+  "hostname -s")
+(defpoll uname :interval "1h"
+  "whoami")
+(defwindow pc_info
+:monitor 0
+:windowtype "dock"
+:geometry (geometry :x "100px"
+                    :y "100px"
+                    :width "200px"
+                    :height "400px"
+                    :anchor "top left")
+:reserve (struts :side "top" :distance "4%")
+(pc_info))
+(defwindow date_time
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "300px"
+                      :y "100px"
+                      :width "300px"
+                      :height "300px"
+                      :anchor "top left")
+  :reserve (struts :side "top" :distance "4%")
+  (date_time))
+
+
+(defwindow youtube
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "300px"
+                      :y "400px"
+                      :width "150px"
+                      :height "100px"
+                      :anchor "top left")
+  :reserve (struts :side "top" :distance "4%")
+  (youtube))
+(defwindow spotify
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "450px"
+                      :y "400px"
+                      :width "150px"
+                      :height "100px"
+                      :anchor "top left")
+  :reserve (struts :side "top" :distance "4%")
+  (spotify))
+(defwindow files
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "600px"
+                      :y "100px"
+                      :width "150px"
+                      :height "400px"
+                      :anchor "top left")
+  :reserve (struts :side "top" :distance "4%")
+  (files))
+
