@@ -1,51 +1,57 @@
-(defwidget sidestuff[]
-  (box 
-    :orientation "h"
-    :spacing 10
-    :space-evenly false
-    (button
-      :hexpand false
-      :class "power"
-      :width 120
-      :halign "end"
-      :valign "center"
-      :orientation "h"
-      "⏻"
-    ) 
-
- 
-  ))
-(defwidget bar []
+(defwidget taskbar []
   (centerbox :orientation "h"
-    (workspaces)
+
     (music)
-    (sidestuff)))
-(defwidget pc_info []
+    (music)
+    (bar)))
+
+(defwidget music []
+    (button
+      :class "wow"
+      :onclick "firefox"  
+      "music" 
+    )
+)
+(defwidget bar []
   (box
-    :class "dinfo"
-    :orientation "horizontal"
-   "${hname}"
-  "${uname}"
+    :space-evenly false :halign "end"
+    :class "side_stuff"
+    (button
+      :class "wow"
+      :onclick "pamixer -d 5"  
+      :onrightclick "pamixer -i 5"
+      volume
+    )
+    (button
+      :class "power"
+      :onclick "firefox"
+      time 
+       )
+    (button
+      :class "power"
+      :onclick "shutdown now"  
+      "⏻" 
+    )
+ 
+
+
   )
 )
 
-
-
-
-(defpoll time :interval "10s"
+(defpoll 
+  time :interval "1s"
   "date '+%H:%M %b %d, %Y'")
-(defpoll hname :interval "1h"
-  "hostname -s")
-(defpoll uname :interval "1h"
-  "whoami")
-
+(defpoll 
+  volume :interval "0.1s"
+  "pamixer --get-volume")
 (defwindow bar
   :monitor 0
   :windowtype "dock"
   :geometry (geometry 
-                      :width "90%"
+                      
+                      :width "95%"
                       :height "35px"
-                      :anchor "top center")
+                    :anchor "top center")
+  (taskbar))
 
-  (sidestuff))
-
+    
