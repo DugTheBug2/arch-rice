@@ -1,5 +1,7 @@
 (defwidget taskbar []
-  (centerbox :orientation "h"
+  (centerbox 
+    :orientation "h"
+    :class "taskbar"
 
     (music)
     (music)
@@ -12,19 +14,19 @@
       "music" 
     )
 )
+
 (defwidget bar []
   (box
     :space-evenly false :halign "end"
     :class "side_stuff"
     (button
-      :class "wow"
+      :class "volume"
       :onclick "pamixer -d 5"  
       :onrightclick "pamixer -i 5"
       volume
     )
-    (button
-      :class "power"
-      :onclick "firefox"
+    (box
+      :class "time"
       time 
        )
     (button
@@ -39,7 +41,7 @@
 )
 
 (defpoll 
-  time :interval "1s"
+  time :interval "10s"
   "date '+%H:%M %b %d, %Y'")
 (defpoll 
   volume :interval "0.1s"
@@ -53,5 +55,17 @@
                       :height "35px"
                     :anchor "top center")
   (taskbar))
+
+
+(defwindow tt
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry 
+                      :x "500px"
+                      :y "500px"
+                      :width "100px"
+                      :height "100px"
+                    :anchor "top center")
+  (tt))
 
     

@@ -1,0 +1,22 @@
+.power{
+    margin-right:2px;
+    
+}
+
+.time{
+    margin: 0px 10px;
+}
+.taskbar{
+    padding: 5px;
+    border:2px solid rgba(196, 39, 39, 0);
+  border-radius: 50px;
+  background-color: transparent
+  ;
+}
+.side_stuff{
+    border:2px solid rgb(196, 39, 39);
+  border-radius: 50px;
+}
+*{
+    
+}
